@@ -30,3 +30,34 @@ function UpdateList() {
 }
 
 UpdateList();
+
+// función para sortear los amigos
+
+function ramdonFriends(){
+    //validar que existan amigos
+    if (Friends.length === 0) {
+        alert("Debes agregar al menos dos amigos para sortear");
+        return;
+
+    }else if (Friends.length === 1) {
+        alert("Debes agregar al menos dos amigos para sortear");
+        return;
+    }
+
+    let random = Math.floor(Math.random() * Friends.length);
+    const selectedFriend = Friends[random];//amigo seleccionado
+
+    const result = document.getElementById("resultado");
+
+    result.innerHTML = `El amigo seleccionado es: <strong>${selectedFriend}</strong>`;
+    clearlist();
+
+
+}
+
+///funcion para limpiar lista
+
+function clearlist() {
+    document.getElementById("listaAmigos").innerHTML = "";
+    
+}
