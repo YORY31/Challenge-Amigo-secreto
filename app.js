@@ -25,6 +25,11 @@ function UpdateList() {
     for (let i = 0; i < Friends.length; i++) {
         const li = document.createElement("li");
         li.textContent = Friends[i];
+
+        const button = document.createElement("button");
+        button.textContent = "❌";
+        button.addEventListener("click", () => deleteFriend(i));
+        li.appendChild(button);
         list.appendChild(li);//agregar el elemento a la lista
     }
 }
@@ -60,4 +65,11 @@ function ramdonFriends(){
 function clearlist() {
     document.getElementById("listaAmigos").innerHTML = "";
     
+}
+
+//función para eliminar amigos
+function deleteFriend(index) {
+    Friends.splice(index, 1); 
+    console.log("Lista actualizada:", Friends); 
+    UpdateList(); 
 }
